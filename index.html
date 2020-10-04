@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React avancé</title>
+</head>
+<body>
+ Pour quelles raisons un composant est il redessiné ?
+ <ul>
+     <li>premier affichage</li>
+     <li>une props change</li>
+     <li>un hook change (state, effect, redux...)</li>
+
+ </ul>
+
+
+ key:
+ Si le key change, le composant est unmount puis mount a nouveau
+ Si 2 composant, on supprime le premier: le deuxieme est unmount puis mount sauf si : (TODO: faire un exemple avec ralentissement)
+    - le premier est remplacé par null
+    - le 2eme composant a un key
+
+ Un composant est re-render si:
+    - ses props changent
+    - un hook change
+    - son parent est re-render
+ sauf si :
+    - on utilise React.memo
+
+
+ Pourquoi les hooks:
+ Motivation #1: Classes are confusing
+ we’ve found that classes can be a large barrier to learning React. You have to understand how this works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers.
+ Motivation #2: It’s hard to reuse stateful logic between components
+ React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store)…React needs a better primitive for sharing stateful logic.
+ Motivation #3: Complex components become hard to understand
+ We’ve often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects. Each lifecycle method often contains a mix of unrelated logic.
+ Motivation #4: Performance
+ We found that class components can encourage unintentional patterns that make these optimizations fall back to a slower path. Classes present issues for today’s tools, too. For example, classes don’t minify very well, and they make hot reloading flaky and unreliable
+
+
+
+
+
+ https://blog.bitsrc.io/exploring-react-renders-different-ways-a-component-gets-re-rendered-edc11403b754
+</body>
+</html>

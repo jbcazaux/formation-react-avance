@@ -1,0 +1,102 @@
+[
+  {
+    "recordid": "c72e72f64f7fc18de8e091c35199ca92dcce5a2e",
+    "fields": {
+      "code_commune_insee": "01009",
+      "nom_de_la_commune": "ANDERT ET CONDON",
+      "code_postal": "01300",
+      "coordonnees_gps": [45.7873565333, 5.65788307924],
+      "libelle_d_acheminement": "ANDERT ET CONDON"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.65788307924, 45.7873565333]
+    }
+  },
+  {
+    "recordid": "e27b5491ecc54cb768dce5fe9ae01325f61293a8",
+    "fields": {
+      "code_commune_insee": "01012",
+      "nom_de_la_commune": "ARANC",
+      "code_postal": "01110",
+      "coordonnees_gps": [46.0015344029, 5.51130637511],
+      "libelle_d_acheminement": "ARANC"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.51130637511, 46.0015344029]
+    }
+  },
+  {
+    "recordid": "a67f009637f9c357e977699de2772bef90c250f8",
+    "fields": {
+      "code_commune_insee": "01023",
+      "nom_de_la_commune": "ASNIERES SUR SAONE",
+      "code_postal": "01570",
+      "coordonnees_gps": [46.3857281418, 4.88387478623],
+      "libelle_d_acheminement": "ASNIERES SUR SAONE"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [4.88387478623, 46.3857281418]
+    }
+  },
+  {
+    "recordid": "67df49a5dc5d8deb49a909152931f3c23886fb9f",
+    "fields": {
+      "code_commune_insee": "01029",
+      "nom_de_la_commune": "BEAUPONT",
+      "code_postal": "01270",
+      "coordonnees_gps": [46.4288360203, 5.26003405676],
+      "libelle_d_acheminement": "BEAUPONT"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.26003405676, 46.4288360203]
+    }
+  },
+  {
+    "recordid": "a34760f8e970bb53dc8d18d62f692770ef346814",
+    "fields": {
+      "code_commune_insee": "01032",
+      "nom_de_la_commune": "BELIGNEUX",
+      "code_postal": "01360",
+      "coordonnees_gps": [45.8591464826, 5.13989505865],
+      "libelle_d_acheminement": "BELIGNEUX"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.13989505865, 45.8591464826]
+    }
+  },
+  {
+    "recordid": "0690e844e3b5e22c88f9d8d9db26d8622a0e02a7",
+    "fields": {
+      "ligne_5": "OCHIAZ",
+      "code_commune_insee": "01033",
+      "libelle_d_acheminement": "VALSERHONE",
+      "code_postal": "01200",
+      "nom_de_la_commune": "VALSERHONE",
+      "coordonnees_gps": [46.1067901755, 5.83202736464]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.83202736464, 46.1067901755]
+    }
+  },
+  {
+    "recordid": "d1db19c61cffb8955581b4bf13ffd512a6d87a2c",
+    "fields": {
+      "ligne_5": "BELMONT LUTHEZIEU",
+      "code_commune_insee": "01036",
+      "libelle_d_acheminement": "VALROMEY SUR SERAN",
+      "code_postal": "01260",
+      "nom_de_la_commune": "VALROMEY SUR SERAN",
+      "coordonnees_gps": [45.8847475883, 5.65115788055]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.65115788055, 45.8847475883]
+    }
+  }
+]
