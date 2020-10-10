@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Tabs from 'TPs/children/map/components/tabs/Tabs'
-import Tab from 'TPs/children/map/components/tabs/Tab'
+import Tabs from 'components/tabs/Tabs'
+import Tab from 'components/tabs/Tab'
 import PropTypes from 'prop-types'
 
 const AppContainer = styled.div`

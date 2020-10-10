@@ -41,7 +41,7 @@ export default Tabs
 const TabTitle = ({ selected, children, subTitle, onClick }) => (
   <div className={cn(style.tab, { [style.selectedTab]: selected })} onClick={onClick}>
     {children}
-    <div>{subTitle}&#8203;</div>
+    <div className={style.soustitre}>{subTitle}&#8203;</div>
   </div>
 )
 
