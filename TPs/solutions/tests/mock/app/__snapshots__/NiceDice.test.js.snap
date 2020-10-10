@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NiceDice renders dice 1 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    />
+    <div
+      class="dot"
+    />
+    <div
+      class="diceColumn symetrie"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NiceDice renders dice 2 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    >
+      <div
+        class="dot"
+      />
+    </div>
+    <div
+      class="diceColumn symetrie"
+    >
+      <div
+        class="dot"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NiceDice renders dice 3 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    >
+      <div
+        class="dot"
+      />
+    </div>
+    <div
+      class="dot"
+    />
+    <div
+      class="diceColumn symetrie"
+    >
+      <div
+        class="dot"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NiceDice renders dice 4 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+    <div
+      class="diceColumn symetrie"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NiceDice renders dice 5 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+    <div
+      class="dot"
+    />
+    <div
+      class="diceColumn symetrie"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NiceDice renders dice 6 1`] = `
+<DocumentFragment>
+  <div
+    class="dice"
+  >
+    <div
+      class="diceColumn"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+    <div
+      class="diceColumn symetrie"
+    >
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+      <div
+        class="dot"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

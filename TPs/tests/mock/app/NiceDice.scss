@@ -1,0 +1,36 @@
+$dice-size: 104px;
+
+.dice {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  background-color: orchid;
+  width: $dice-size;
+  height: $dice-size;
+  border-radius: 10%;
+  margin: 20px 0;
+
+  >.dot{
+    align-self: center;
+  }
+}
+
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color:white;
+}
+
+.diceColumn {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  .dot:nth-of-type(2) {
+    align-self: center;
+  }
+}
+
+.symetrie {
+  transform: rotate(180deg);
+}

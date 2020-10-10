@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs displays simple Tabs 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="tabs"
+    >
+      <div
+        class="tab selectedTab"
+      >
+        title1
+        <div
+          class="soustitre"
+        >
+          ​
+        </div>
+      </div>
+      <div
+        class="tab"
+      >
+        title2
+        <div
+          class="soustitre"
+        >
+          ​
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="body1"
+    >
+      body1
+    </div>
+  </div>
+</DocumentFragment>
+`;

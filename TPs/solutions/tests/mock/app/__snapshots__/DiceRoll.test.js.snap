@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NiceDice renders DiceRoll 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      NiceDice
+    </div>
+    <div>
+      Lancer le dé !
+    </div>
+  </div>
+</DocumentFragment>
+`;
