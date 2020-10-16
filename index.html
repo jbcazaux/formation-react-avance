@@ -1,47 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>React avancé</title>
-</head>
-<body>
- Pour quelles raisons un composant est il redessiné ?
- <ul>
-     <li>premier affichage</li>
-     <li>une props change</li>
-     <li>un hook change (state, effect, redux...)</li>
+  <head>
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
 
- </ul>
+    <title>Formation React - niveau avancé</title>
 
+    <meta name="description" content="Formation react.js niveau avancé" />
+    <meta
+      name="keywords"
+      content="formation react, formation reactjs, hooks, useEffect, useState, freelance, patterns, best practices, es6, props, state, jsx"
+    />
+    <meta name="author" content="Jean-Baptite CAZAUX" />
 
- key:
- Si le key change, le composant est unmount puis mount a nouveau
- Si 2 composant, on supprime le premier: le deuxieme est unmount puis mount sauf si : (TODO: faire un exemple avec ralentissement)
-    - le premier est remplacé par null
-    - le 2eme composant a un key
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
- Un composant est re-render si:
-    - ses props changent
-    - un hook change
-    - son parent est re-render
- sauf si :
-    - on utilise React.memo
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="reveal/reset.css" />
+    <link rel="stylesheet" href="reveal/reveal.css" />
+    <link rel="stylesheet" href="reveal/theme/black.css" id="theme" />
 
- Pourquoi les hooks:
- Motivation #1: Classes are confusing
- we’ve found that classes can be a large barrier to learning React. You have to understand how this works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers.
- Motivation #2: It’s hard to reuse stateful logic between components
- React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store)…React needs a better primitive for sharing stateful logic.
- Motivation #3: Complex components become hard to understand
- We’ve often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects. Each lifecycle method often contains a mix of unrelated logic.
- Motivation #4: Performance
- We found that class components can encourage unintentional patterns that make these optimizations fall back to a slower path. Classes present issues for today’s tools, too. For example, classes don’t minify very well, and they make hot reloading flaky and unreliable
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal/plugin/highlight/monokai.css" id="highlight-theme" />
+  </head>
 
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>
+            <img
+              style="margin: 0"
+              width="75"
+              height="75"
+              data-src="images/react.svg"
+              src="images/react.svg"
+              alt="react"
+            />React.js
+          </h1>
+          <h6>niveau avancé</h6>
+          <p style="text-align: center"><a target="_blank" href="http://twitter.com/jbcazaux">@jbcazaux</a></p>
+          <p style="text-align: center">
+            <a href="https://formation-reactjs.fr">https://formation-reactjs.fr</a>
+          </p>
+          <a href="https://www.netlify.com">
+            <img
+              src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
+              alt="Deploys by Netlify"
+              style="border: none; background: none; box-shadow: none; margin: 0; float: right"
+            />
+          </a>
+        </section>
+        <section><img data-src="images/mynameis.jpg" alt="my name is" /></section>
+        <section><img data-src="images/coffee.gif" alt="coffee break" /></section>
+        <section>
+          <h3>Objectifs</h3>
+          <img data-src="images/postits.jpg" alt="goals" />
+        </section>
+        <section>
+          <h3>Versions</h3>
+          <pre><code data-trim>"react": "17.0.0-rc.1"</code></pre>
+        </section>
+        <section>
+          <h3>Le programme !</h3>
+          <ul>
+            <li>Les Hooks</li>
+            <li>Optimiser</li>
+            <li>Gérer les erreurs</li>
+            <li>cloneElement</li>
+            <li>Tester</li>
+            <li>Le futur</li>
+            <li>Construire son application react</li>
+          </ul>
+        </section>
+      </div>
 
+      <script src="reveal/reveal.js"></script>
+      <script src="reveal/plugin/zoom/zoom.js"></script>
+      <script src="reveal/plugin/notes/notes.js"></script>
+      <script src="reveal/plugin/search/search.js"></script>
+      <script src="reveal/plugin/markdown/markdown.js"></script>
+      <script src="reveal/plugin/highlight/highlight.js"></script>
+      <script>
+        Reveal.initialize({
+          controls: true,
+          progress: true,
+          center: true,
+          hash: true,
+          showHiddenSlides: true,
 
-
-
- https://blog.bitsrc.io/exploring-react-renders-different-ways-a-component-gets-re-rendered-edc11403b754
-</body>
+          plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
+        })
+      </script>
+    </div>
+  </body>
 </html>
