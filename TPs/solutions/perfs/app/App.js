@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import villesApi from 'apis/villes'
 import VilleInfos from './VilleInfos'
 import styled from 'styled-components'
@@ -20,25 +20,21 @@ const App = () => {
 
   useEffect(() => {
     villesApi.get().then(setVilles)
-  }, [selectionId])
+  }, [])
 
-  const villeSelectionnee = villes.find(v => v.id === selectionId)
+  const setSelectionVille = useCallback(v => setSelectionId(v.id), [])
+  const villeSelectionnee = useMemo(() => villes.find(v => v.id === selectionId), [villes, selectionId])
 
   return (
     <Page>
       <AppTitle>La liste des villes !</AppTitle>
       <Main>
         <Card>
-          {villes.map(ville => (
-            <VilleInfos
-              ville={ville}
-              key={ville.id}
-              onSelect={v => setSelectionId(v.id)}
-              isSelectionne={ville.id === selectionId}
-            />
+          {villes.map(v => (
+            <VilleInfos ville={v} key={v.id} onSelect={setSelectionVille} isSelectionne={v.id === selectionId} />
           ))}
         </Card>
-        <Card>{villeSelectionnee?.cp}</Card>
+        <Card>{villeSelectionnee ? villeSelectionnee.cp : null}</Card>
       </Main>
     </Page>
   )
