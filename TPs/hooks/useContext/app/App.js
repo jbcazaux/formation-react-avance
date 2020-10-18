@@ -1,83 +1,64 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useCallback, useState } from 'react'
 import villesApi from 'apis/villes'
 import VilleInfos from './VilleInfos'
 import styled from 'styled-components'
+import Page from 'components/Page'
+import Card from 'components/Card'
+import Recharger from 'app/Recharger'
+import Trigger from 'components/Trigger'
 
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const AppTitle = styled.h3`
-  display: flex;
-  flex-direction: column;
-`
 const Main = styled.div`
+  min-height: 0;
   display: flex;
   flex-direction: raw;
+  flex: 1;
 `
-const Left = styled.div`
+
+const AppTitle = styled(Card)`
   display: flex;
-  flex-direction: column;
-  flex: auto;
+  flex: 0;
+  background-color: #2c79ac;
+  color: white;
 `
+
+const CardScroll = styled(Card)`
+  flex: 1;
+  overflow: auto;
+`
+
 const Right = styled.div`
   display: flex;
   flex-direction: column;
-  flex: auto;
+  flex: 1;
+  height: fit-content;
 `
-
-const RefreshVillesContext = React.createContext()
-
-const useSalt = f => {
-  const [salt, setSalt] = useState(0)
-  useEffect(f, [f, salt])
-  return useCallback(() => setSalt(s => s + 1), [])
-}
-
-const TriggerVilles = ({ f, children }) => {
-  const update = useSalt(f)
-  return <RefreshVillesContext.Provider value={update}>{children}</RefreshVillesContext.Provider>
-}
-TriggerVilles.propTypes = {
-  children: PropTypes.node.isRequired,
-  f: PropTypes.func.isRequired,
-}
-
-const ReloadVilles = () => {
-  const update = useContext(RefreshVillesContext)
-  return <button onClick={update}>refresh</button>
-}
 
 const App = () => {
   const [villes, setVilles] = useState([])
-
-  const f = useCallback(() => {
-    villesApi.get_small().then(setVilles)
-  }, [])
-
-  const sayHello = () => console.log('hello')
-  const helloSalt = useSalt(sayHello)
-
-  const deleteVille = () => undefined // TODO !
+  const rechargerVilles = useCallback(() => villesApi.get().then(setVilles), [])
+  const supprimeVille = useCallback(
+    selection => setVilles(prev => prev.filter(v => v.id !== selection.id)),
+    []
+  )
 
   return (
-    <TriggerVilles f={f}>
-      <AppContainer>
-        <AppTitle>La liste des villes !</AppTitle>
+    <Trigger f={rechargerVilles}>
+      <Page>
+        <AppTitle>Liste des villes</AppTitle>
         <Main>
-          <Left>
-            <button onClick={helloSalt}>Hello !</button>
-            {villes.map(v => (
-              <VilleInfos ville={v} key={v.id} onClick={deleteVille} />
+          <CardScroll>
+            {villes.map(ville => (
+              <VilleInfos ville={ville} key={ville.id} onSelect={supprimeVille} />
             ))}
-          </Left>
+          </CardScroll>
           <Right>
-            <ReloadVilles />
+            <Card>
+              <Recharger />
+            </Card>
           </Right>
         </Main>
-      </AppContainer>
-    </TriggerVilles>
+      </Page>
+    </Trigger>
   )
 }
 
