@@ -8,7 +8,7 @@ class ErrorBoundary extends React.Component {
     }
 
     static getDerivedStateFromError(error) {
-        // TODO : mettre à jour le state pour indiquer qu'il y a une erreur
+        return { hasError: true };
     }
 
     componentDidCatch(error, errorInfo) {
@@ -16,13 +16,15 @@ class ErrorBoundary extends React.Component {
     }
 
     render() {
-        // TODO : Si il y a une erreur, afficher un message
-        // sinon afficher l'application
-        return null
+        if (this.state.hasError) {
+            return <span>Une erreur est survenue.</span>;
+        }
+        return this.props.children;
     }
 }
 
 ErrorBoundary.propTypes = {
+    children: PropTypes.node,
 }
 
 
