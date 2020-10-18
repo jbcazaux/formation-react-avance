@@ -4,7 +4,8 @@ const axios = getAxios()
 const villes = {
   get_small: async () => {
     const { data } = await axios.get('./laposte_hexasmal_small.json')
-    return data.map(
+    return data
+      .map(
       d =>
         new Ville(
           d.recordid,
@@ -15,6 +16,7 @@ const villes = {
           d.fields.libelle_d_acheminement
         )
     )
+      .sort((v1, v2) => v1.cp.compareTo(v2.cp))
   },
   get: async () => {
     const { data } = await axios.get('./laposte_hexasmal.json')

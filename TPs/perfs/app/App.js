@@ -4,14 +4,29 @@ import VilleInfos from './VilleInfos'
 import styled from 'styled-components'
 import Page from 'components/Page'
 import Card from 'components/Card'
+import VilleDetails from 'app/VilleDetails'
 
-const AppTitle = styled.h3`
-  display: flex;
-  flex-direction: column;
-`
 const Main = styled.div`
+  min-height: 0;
   display: flex;
   flex-direction: raw;
+  flex: 1;
+`
+
+const AppTitle = styled(Card)`
+  display: flex;
+  flex: 0;
+  background-color: #2c79ac;
+  color: white;
+`
+
+const CardScroll = styled(Card)`
+  flex: 1;
+  overflow: auto;
+`
+
+const CardInfo = styled(Card)`
+  height: fit-content;
 `
 
 const App = () => {
@@ -26,9 +41,9 @@ const App = () => {
 
   return (
     <Page>
-      <AppTitle>La liste des villes !</AppTitle>
+      <AppTitle>Liste des villes</AppTitle>
       <Main>
-        <Card>
+        <CardScroll>
           {villes.map(ville => (
             <VilleInfos
               ville={ville}
@@ -37,8 +52,8 @@ const App = () => {
               isSelectionne={ville.id === selectionId}
             />
           ))}
-        </Card>
-        <Card>{villeSelectionnee?.cp}</Card>
+        </CardScroll>
+        <CardInfo>{villeSelectionnee ? <VilleDetails ville={villeSelectionnee} /> : null}</CardInfo>
       </Main>
     </Page>
   )

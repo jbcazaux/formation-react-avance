@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Layout = styled.div`
+  display: flex;
   width: fit-content;
   cursor: pointer;
 `
