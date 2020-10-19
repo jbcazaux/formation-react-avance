@@ -4,7 +4,7 @@ import DiceRoll from './DiceRoll'
 
 jest.mock('./NiceDice', () => () => <div>NiceDice</div>)
 jest.mock('components/button/Button', () => ({children}) => <div>{children}</div>)
-describe('NiceDice', () => {
+describe('DiceRoll', () => {
   it('renders DiceRoll', () => {
     const { container } = render(<DiceRoll />)
 

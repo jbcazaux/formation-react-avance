@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NiceDice renders DiceRoll 1`] = `
-<DocumentFragment>
+exports[`DiceRoll renders DiceRoll 1`] = `
+<div>
   <div>
     <div>
       NiceDice
@@ -10,5 +10,5 @@ exports[`NiceDice renders DiceRoll 1`] = `
       Lancer le dé !
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
