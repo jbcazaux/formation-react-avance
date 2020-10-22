@@ -56,7 +56,7 @@ const App = () => {
           ))}
         </CardScroll>
         <CardInfo>
-          <ErrorBoundary key={villeSelectionnee?.id}>
+          <ErrorBoundary>
             {villeSelectionnee ? <VilleDetails ville={villeSelectionnee} /> : null}
           </ErrorBoundary>
         </CardInfo>
