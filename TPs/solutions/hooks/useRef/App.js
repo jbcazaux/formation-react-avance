@@ -1,53 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './Routes/Home'
+import Route1 from './Routes/Route1'
+import Route2 from './Routes/Route2'
+import Menu from './Menu'
 
-const AppContainer = styled.div`
-  display: block;
-`
-
-const Chrono = () => {
-  const [raz, setRaz] = useState(0)
-  const [timer, setTimer] = useState(0)
-  const intervalRef = useRef(-1)
-
-  useEffect(() => {
-    console.log('execute useeffect')
-    const newIt = setInterval(() => {
-      console.log('+1')
-      setTimer(t => t + 1)
-    }, 1000)
-    console.log('create interval', newIt)
-    intervalRef.current = newIt
-
-    return () => {
-      console.log('clean interval', intervalRef.current)
-      clearInterval(intervalRef.current)
-    }
-  }, [raz])
-
-  return (
-    <AppContainer>
-      Temps écoulé {timer}s
-      <button
-        onClick={() => {
-          setRaz(Math.random())
-          setTimer(0)
-        }}
-      >
-        <span>RAZ</span>
-      </button>
-    </AppContainer>
-  )
-}
-
-const App = () => {
-  const [chrono, setChrono] = useState(false)
-  return (
-    <div>
-      {chrono && <Chrono />}
-      <button onClick={() => setChrono(c => !c)}>Affiche Chrono</button>
-    </div>
-  )
-}
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/route-1" component={Route1} />
+      <Route exact path="/route-2" component={Route2} />
+    </Switch>
+  </BrowserRouter>
+)
 
 export default App

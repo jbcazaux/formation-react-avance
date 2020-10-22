@@ -25,6 +25,21 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="reveal/plugin/highlight/monokai.css" id="highlight-theme" />
+
+    <style type="text/css">
+        p {
+            text-align: left;
+        }
+
+        .reveal h3,
+        .reveal h4 {
+            text-transform: none;
+        }
+
+        .reveal pre code {
+            max-height: 530px;
+        }
+    </style>
   </head>
 
   <body>
@@ -76,6 +91,154 @@
             <li>Construire son application react</li>
           </ul>
         </section>
+        <section>
+          <h3>Les hooks - useState</h3>
+          <pre><code data-trim>
+           const ComponentWithState = (props) => {
+            const [count, setCount] = useState(0)
+            const [user, setUser] = useState(null)
+            const [color, setColor] = useState('green')
+
+            return ...
+           }
+           </code></pre>
+        </section>
+        <section>
+          <h3>Les hooks - useState</h3>
+          <pre><code data-trim>
+           const ComponentWithState = (props) => {
+            const [count, setCount] = useState(0)
+            const [user, setUser] = useState(null)
+            const [color, setColor] = useState('green')
+
+            return ...
+           }
+           </code></pre>
+        </section>
+        <section>
+          <h3>Les hooks - useState</h3>
+          <p>Pour mettre un état par défaut, on passe un paramètre à useState()</p>
+          <pre><code data-trim>
+            const [count, setCount] = useState(42)
+          </code></pre>
+          <p>Mettre à jour un état</p>
+          <pre><code data-trim>
+            const [count, setCount] = useState(0)
+            setCount(10)
+            setCount(prevState => prevState + 1)
+            </code></pre>
+          <p>Récupérer l'état courant</p>
+          <pre><code data-trim>
+            const [count, setCount] = useState(0)
+            count
+          </code></pre>
+        </section>
+        <section>
+          <h3>Les hooks - useEffect</h3>
+          <p>Déclenche un traitement lorsque des données (issues des props ou des states) changent</p>
+          <pre><code data-trim>
+            const UserDetails = ({userId}) => {
+             const [details, setDetails] = useState(null)
+
+             useEffect(() => {
+              axios.get('/user/' + userId)
+               .then(({response: {data: details}}) => setDetails(details))
+             }, [userId])
+
+             return ...
+            }
+          </code></pre>
+          <p>Idée : Modifier une dépendance pour relancer l'<em>effect</em></p>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP hooks/useEffect</h3>
+          <h4>Pour ne pas dessaler</h4>
+          <ol>
+            <li>Utiliser un sel comme dépendance du useEffect</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Les hooks - useEffect</h3>
+          <p>La méthode passée à useEffect peut retourner une <em>fonction de nettoyage</em></p>
+          <pre><code data-trim>
+            const UserDetails = ({userId}) => {
+             const [details, setDetails] = useState(null)
+             const onResize = useCallBack(event => {...}, [])
+
+             useEffect(() => {
+              window.addEventListerner('resize', onResize)
+              return () => window.removeEventListener('resize', onResize)
+             }, [])
+
+             return ...
+            }
+          </code></pre>
+        </section>
+        <section>
+          <h3>Les hooks - useRef</h3>
+          <p>useRef permet de créer un objet qui aura la même référence entre 2 exécutions du composant (pas comme un let)</p>
+          <p>Utiliser useRef pour stocker des données qui si elles changent ne doivent pas entrainer
+            un réaffichage (réexécution) du composant</p>
+          <pre><code data-trim>
+            const Counter = () => {
+             const count = useRef(0)
+             return
+              <>
+                <button onClick={() => count.current = count.current + 1}>Click me !</button>
+                <Super counter={count.current}/>
+              </>
+            }
+          </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP hooks/useRef-useEffect</h3>
+          <h4>I can see dead components</h4>
+          <ol>
+            <li>Etudier l'erreur lors du changement de page et trouver une solution</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Context API</h3>
+          <p>
+            Créer un <i>Context</i>, and et encapsuler l'application à l'intérieur du <i>&lt;Context.Provider&gt;</i>
+          </p>
+          <pre><code data-trim>
+                const Context = React.createContext()
+                export default Context
+            </code></pre>
+          <pre><code data-trim>
+                ...
+                return &lt;Context.Provider
+                            value={{color: 'purple', user: new User(1, 'admin')}}&gt;
+                    &lt;App/&gt;
+                &lt;/Context.Provider&gt;
+            </code></pre>
+        </section>
+        <section>
+          <h3>Context API</h3>
+          <p>Ensuite on récupère le <i>context</i> là ou l'on veut l'utiliser avec le hook <i>useContext()</i></p>
+          <pre><code data-trim>
+            import React, {useContext} from 'react'
+            import MyContext from './Context'
+
+            const MyComponent = () => {
+                const ctx = useContext(MyContext)
+                return &lt;div style={{backgroundColor: ctx.color}}&gt;
+                   Some text
+                &lt;/div&gt;
+              }
+            }
+            </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP hooks/useContext</h3>
+          <h4>Passe moi le sel !</h4>
+          <ol>
+            <li>Utiliser le contexte pour passer une fonction qui modifie le sel</li>
+            <li>Comment améliorer ce composant Trigger ?</li>
+          </ol>
+        </section>
+
       </div>
 
       <script src="reveal/reveal.js"></script>
