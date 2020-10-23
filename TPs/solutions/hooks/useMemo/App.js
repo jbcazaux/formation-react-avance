@@ -1,33 +1,30 @@
-import React, { useCallback, useState } from 'react'
-import styled from 'styled-components'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ handleClick }) => <button onClick={handleClick}>click me !</button>
-Button.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+const Calculator = ({ a, b }) => {
+  const result = useMemo(() => {
+    const add = (x, y) => {
+      console.log('une loooongue addition')
+      return x + y
+    }
+    return add(a, b);
+  }, [a, b])
+
+  return <div> {result} </div>
 }
-const MButton = React.memo(Button)
+Calculator.propTypes = {
+  a: PropTypes.number.isRequired,
+  b: PropTypes.number.isRequired,
+}
 
-const ClickCount = () => {
-  const [value, setValue] = useState(0)
-  const handleClick = useCallback(() => setValue(v => v + 1), [])
-
+const App = () => {
+  const [sel, setSel] = useState(0)
   return (
-    <>
-      {value}
-      <MButton handleClick={handleClick} />
-    </>
+    <div>
+      <button onClick={() => setSel(s => s + 1)}>re-render ({sel})</button>
+      <Calculator a={4} b={2} />
+    </div>
   )
 }
-
-const AppContainer = styled.div`
-  display: flex;
-`
-
-const App = () => (
-  <AppContainer>
-    <ClickCount />
-  </AppContainer>
-)
 
 export default App
