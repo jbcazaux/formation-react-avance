@@ -3,7 +3,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
-
 module.exports = (env, argv = {}) => ({
   entry: {
     bundle: './src/index.js',
@@ -40,9 +39,11 @@ module.exports = (env, argv = {}) => ({
         loader: 'babel-loader',
       },
       {
-        test: /\.scss$/,
-        loader: [
-          MiniCssExtractPlugin.loader,
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader',
             options: {
@@ -61,7 +62,6 @@ module.exports = (env, argv = {}) => ({
         ],
       },
     ],
-
   },
   devtool: argv.mode === 'development' ? 'source-map' : false,
   devServer: {
