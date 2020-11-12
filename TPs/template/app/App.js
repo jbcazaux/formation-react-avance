@@ -13,7 +13,7 @@ const AppTitle = styled.h3`
 `
 const Main = styled.div`
   display: flex;
-  flex-direction: raw;
+  flex-direction: row;
 `
 const Left = styled.div`
   display: flex;
