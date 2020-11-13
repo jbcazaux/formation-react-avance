@@ -77,7 +77,7 @@
         </section>
         <section>
           <h3>Versions</h3>
-          <pre><code data-trim>"react": "17.0.0-rc.1"</code></pre>
+          <pre><code data-trim>"react": "17.0.1"</code></pre>
         </section>
         <section>
           <h3>Le programme !</h3>
@@ -193,7 +193,8 @@
         <section>
           <h3>Les hooks - useContext</h3>
           <p>
-            Créer un <i>Context</i>, and et encapsuler l'application à l'intérieur du <i>&lt;Context.Provider&gt;</i>
+            Créer un <i>Context</i>, and et encapsuler l'application à l'intérieur du
+            <i>&lt;Context.Provider&gt;</i>
           </p>
           <pre><code data-trim>
                 const MyContext = React.createContext()
@@ -253,9 +254,7 @@
         </section>
         <section data-auto-animate data-visibility="hidden">
           <h3 data-id="memo">Perfs - React.memo</h3>
-          <p data-id="memo-p">
-            React.memo permet de <em>memoize</em> un composant React.
-          </p>
+          <p data-id="memo-p">React.memo permet de <em>memoize</em> un composant React.</p>
           <pre data-id="memo-pre"><code data-trim>
            const MyComponent = () => ...
            export default React.memo(MyComponent)
@@ -263,9 +262,7 @@
         </section>
         <section data-auto-animate>
           <h3 data-id="memo">Perfs - React.memo</h3>
-          <p data-id="memo-p">
-            React.memo permet de <em>memoize</em> un composant React.
-          </p>
+          <p data-id="memo-p">React.memo permet de <em>memoize</em> un composant React.</p>
           <pre data-id="memo-pre"><code data-trim>
            const MyComponent = () => ...
            export default React.memo(MyComponent, (prevProps, nextProps) => {
@@ -273,13 +270,13 @@
            })
           </code></pre>
         </section>
-        <section data-auto-animate>
-          <h3 data-id="memo">Perfs - useCallback</h3>
-          <p data-id="memo-p">
+        <section>
+          <h3>Perfs - useCallback</h3>
+          <p>
             useCallback permet de ne pas recréer une nouvelle fonction à chaque exécution (re-render) d'un composant.
             Ces fonctions sont destinées à être passées comme callback aux composants enfants.
           </p>
-          <pre data-id="memo-pre"><code data-trim>
+          <pre><code data-trim>
            const MyComponent = () => {
             const handleClick = useCallback(e => console.log(e))
 
@@ -293,6 +290,86 @@
           <ol>
             <li>Utiliser React dev tools pour montrer que le composant <em>Button</em> est réaffiché plusieurs fois</li>
             <li>Utiliser React.memo</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Perfs - code splitting / lazy loading</h3>
+          <p>
+            Charger une partie des sources à la demande.
+          </p>
+          <pre><code data-trim>
+           const LazyComponent = React.lazy(() =>
+            import(/* webpackChunkName: "nomDuBundle" */ './Goodbye')
+           )
+           const MyComponent = () => (
+            &lt;Suspense fallback={&lt;div&gt;Loading... !&lt;/div&gt;}>
+              &lt;LazyComponent/&gt;
+            &lt;/Suspense&gt;
+           )
+          </code></pre>
+          <p style="font-size: .6em">
+            Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i>
+          </p>
+        </section>
+        <section>
+          <h3>Perfs - code splitting / lazy loading</h3>
+          <p>
+            Attendre que les sous-composants soient entièrement chargés, et afficher un autre composant en attendant
+          </p>
+          <pre><code data-trim>
+           const LazyComponent = React.lazy(() =>
+            import(/* webpackChunkName: "nomDuBundle" */ './Goodbye')
+           )
+           const MyComponent = () => (
+            &lt;Suspense fallback={&lt;div&gt;Loading... !&lt;/div&gt;}>
+              &lt;LazyComponent/&gt;
+            &lt;/Suspense&gt;
+           )
+          </code></pre>
+          <p style="font-size: .6em">
+            Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i>
+          </p>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP perfs/lazy-suspense</h3>
+          <h4>Feignant !</h4>
+          <ol>
+            <li>Utiliser React.lazy et les imports dynamiques pour différer le chargement du composant GoodBye</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Gestion des erreurs inatendues</h3>
+          <p>
+            Eviter que l'application ne crashe totalement avec les ErrorBoundaries.
+          </p>
+          <pre><code data-trim>
+          class ErrorBoundary extends React.Component {
+            constructor(props) {
+              super(props)
+              this.state = {error : null}
+            }
+            static getDerivedStateFromError(error) {
+              // appelé en cas d'erreur,
+              // Peut retourner un nouvel état
+            }
+            componentDidCatch(error, errorInfo) {
+              // appelé en cas d'erreur
+            }
+            render() {
+              return this.props.children
+            }
+          }
+          </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP ErrorBoundary</h3>
+          <h4>Rattraper ses erreurs</h4>
+          <ol>
+            <li>Modifier ErrorBoudary pour qu'il affiche ses sous-composants (children)</li>
+            <li>L'application crashe si on clique sur une ville qui commence par un A (faire le test !)</li>
+            <li>Mettre à jour le state pour que le composant se redessine en se basant sur ce nouvel état</li>
+            <li>Modifier la méthode render pour afficher un message en cas d'erreur</li>
+            <li>Bonus : pourquoi l'appli continue à afficher le message d'erreur après un clic sur une autre ville ? Comment le corriger ?</li>
           </ol>
         </section>
       </div>
