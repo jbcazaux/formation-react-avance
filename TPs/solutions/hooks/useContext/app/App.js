@@ -10,7 +10,7 @@ import Trigger from 'components/Trigger'
 const Main = styled.div`
   min-height: 0;
   display: flex;
-  flex-direction: raw;
+  flex-direction: row;
   flex: 1;
 `
 
@@ -36,10 +36,7 @@ const Right = styled.div`
 const App = () => {
   const [villes, setVilles] = useState([])
   const rechargerVilles = useCallback(() => villesApi.get().then(setVilles), [])
-  const supprimeVille = useCallback(
-    selection => setVilles(prev => prev.filter(v => v.id !== selection.id)),
-    []
-  )
+  const supprimeVille = useCallback(selection => setVilles(prev => prev.filter(v => v.id !== selection.id)), [])
 
   return (
     <Trigger f={rechargerVilles}>

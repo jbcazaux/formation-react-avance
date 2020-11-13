@@ -10,7 +10,7 @@ import ErrorBoundary from 'components/ErrorBoundary'
 const Main = styled.div`
   min-height: 0;
   display: flex;
-  flex-direction: raw;
+  flex-direction: row;
   flex: 1;
 `
 

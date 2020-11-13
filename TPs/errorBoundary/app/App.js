@@ -10,7 +10,7 @@ import ErrorBoundary from 'components/ErrorBoundary'
 const Main = styled.div`
   min-height: 0;
   display: flex;
-  flex-direction: raw;
+  flex-direction: row;
   flex: 1;
 `
 
@@ -56,9 +56,7 @@ const App = () => {
           ))}
         </CardScroll>
         <CardInfo>
-          <ErrorBoundary>
-            {villeSelectionnee ? <VilleDetails ville={villeSelectionnee} /> : null}
-          </ErrorBoundary>
+          <ErrorBoundary>{villeSelectionnee ? <VilleDetails ville={villeSelectionnee} /> : null}</ErrorBoundary>
         </CardInfo>
       </Main>
     </Page>
