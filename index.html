@@ -85,6 +85,7 @@
             <li>Les Hooks</li>
             <li>Optimiser</li>
             <li>Gérer les erreurs</li>
+            <li>children</li>
             <li>cloneElement</li>
             <li>Tester</li>
             <li>Le futur</li>
@@ -193,7 +194,7 @@
         <section>
           <h3>Les hooks - useContext</h3>
           <p>
-            Créer un <i>Context</i>, and et encapsuler l'application à l'intérieur du
+            Créer un <i>Context</i>, et encapsuler l'application à l'intérieur du
             <i>&lt;Context.Provider&gt;</i>
           </p>
           <pre><code data-trim>
@@ -294,12 +295,10 @@
         </section>
         <section>
           <h3>Perfs - code splitting / lazy loading</h3>
-          <p>
-            Charger une partie des sources à la demande.
-          </p>
+          <p>Charger une partie des sources à la demande.</p>
           <pre><code data-trim>
            const LazyComponent = React.lazy(() =>
-            import(/* webpackChunkName: "nomDuBundle" */ './Goodbye')
+            import(/* webpackChunkName: "nomDuBundle" */ './AnyComponent')
            )
            const MyComponent = () => (
             &lt;Suspense fallback={&lt;div&gt;Loading... !&lt;/div&gt;}>
@@ -307,9 +306,7 @@
             &lt;/Suspense&gt;
            )
           </code></pre>
-          <p style="font-size: .6em">
-            Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i>
-          </p>
+          <p style="font-size: 0.6em">Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i></p>
         </section>
         <section>
           <h3>Perfs - code splitting / lazy loading</h3>
@@ -318,7 +315,7 @@
           </p>
           <pre><code data-trim>
            const LazyComponent = React.lazy(() =>
-            import(/* webpackChunkName: "nomDuBundle" */ './Goodbye')
+            import(/* webpackChunkName: "nomDuBundle" */ './AnyComponent')
            )
            const MyComponent = () => (
             &lt;Suspense fallback={&lt;div&gt;Loading... !&lt;/div&gt;}>
@@ -326,9 +323,7 @@
             &lt;/Suspense&gt;
            )
           </code></pre>
-          <p style="font-size: .6em">
-            Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i>
-          </p>
+          <p style="font-size: 0.6em">Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i></p>
         </section>
         <section data-background="#40a0a0">
           <h3>TP perfs/lazy-suspense</h3>
@@ -339,9 +334,7 @@
         </section>
         <section>
           <h3>Gestion des erreurs inatendues</h3>
-          <p>
-            Eviter que l'application ne crashe totalement avec les ErrorBoundaries.
-          </p>
+          <p>Eviter que l'application ne crashe totalement avec les ErrorBoundaries.</p>
           <pre><code data-trim>
           class ErrorBoundary extends React.Component {
             constructor(props) {
@@ -369,7 +362,68 @@
             <li>L'application crashe si on clique sur une ville qui commence par un A (faire le test !)</li>
             <li>Mettre à jour le state pour que le composant se redessine en se basant sur ce nouvel état</li>
             <li>Modifier la méthode render pour afficher un message en cas d'erreur</li>
-            <li>Bonus : pourquoi l'appli continue à afficher le message d'erreur après un clic sur une autre ville ? Comment le corriger ?</li>
+            <li>
+              Bonus : pourquoi l'appli continue à afficher le message d'erreur après un clic sur une autre ville ?
+              Comment le corriger ?
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h3>Children</h3>
+          <pre><code data-trim>
+            ReactDOM.render(
+               &lt;Button title="My Button"&gt;Press Me! &lt;/Button&gt;,
+               document.getElementById('root')
+            )
+            </code></pre>
+          <pre><code data-trim>
+            export const ButtonApp = ({title, children}) => {
+                return &lt;div&gt;
+                    &lt;div&gt;{title}&lt;/div&gt;
+                    &lt;button&gt;{children}&lt;/button&gt;
+                &lt;/div&gt;
+            }
+            </code></pre>
+        </section>
+        <section>
+          <h3>Children</h3>
+          <pre><code data-trim>
+            ReactDOM.render(
+               &lt;List&gt;
+                &lt;ListElem&gt;A&lt;/ListElem&gt;
+                &lt;ListElem&gt;B&lt;/ListElem&gt;
+               &lt;/List&gt;,
+               document.getElementById('root')
+            )
+            </code></pre>
+          <pre><code data-trim>
+            const ListElem = ({children}) => <span>{children}</span>
+
+            const List = ({children}) => {
+                <ul>
+                  {React.Children.map(children, (child, index) => (
+                    &lt;li&gt;{index} - {child}&lt;/li&gt;
+                  ))}
+                </ul>
+            }
+            </code></pre>
+        </section>
+        <section>
+          <h3>Children</h3>
+          <p>Méthodes sur React.Children : map, foreach, count, only, toArray.</p>
+          <p style="font-size: 0.6em">
+            <a href="https://en.reactjs.org/docs/react-api.html#reactchildren"> Documentation React.Children </a>
+          </p>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP Children</h3>
+          <h4>Sweet child o' mine</h4>
+          <ol>
+            <li>Dans Tabs.js, créer un state pour sauvegarder l'index de l'onglet sélectionné</li>
+            <li>Retourner un TabTitle pour chaque onglet (Tab)</li>
+            <li>Dans les TabTitle, mettre le titre défini dans les Tab </li>
+            <li>Afficher le Tab sélectionné (et pas les autres)</li>
+            <li>Bonus : Modifier Tab.js tel que const Tab = () => null</li>
           </ol>
         </section>
       </div>

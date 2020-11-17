@@ -23,7 +23,7 @@ const Tabs = ({ children }) => {
       {React.Children.map(children, (child, index) => {
         if (index !== selectedTab) return null
         if (child.type !== Tab) return null
-        return child
+        return child.props.children
       })}
     </div>
   )

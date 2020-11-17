@@ -2,26 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import Tabs from 'components/tabs/Tabs'
 import Tab from 'components/tabs/Tab'
-import PropTypes from 'prop-types'
 
 const AppContainer = styled.div`
   display: flex;
 `
 
-const Page = ({children}) => <div>{children}</div>
-Page.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 const App = () => (
   <AppContainer>
     Mes onglets :
     <Tabs>
-      <Tab title="Titre 1"><Page>Ecran 1</Page></Tab>
-      <Tab title="Titre 2"><Page>Ecran 2</Page></Tab>
+      <Tab title="Titre 1">Ecran 1</Tab>
+      <Tab title="Titre 2">Ecran 2</Tab>
     </Tabs>
   </AppContainer>
 )
-
 
 export default App

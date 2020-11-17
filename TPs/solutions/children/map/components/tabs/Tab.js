@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Tab = ({ children }) => children
+const Tab = () => null
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
