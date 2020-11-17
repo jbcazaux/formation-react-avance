@@ -19,11 +19,9 @@ Loader.propTypes = {
   children: PropTypes.func.isRequired,
 }
 
-
 const AppContainer = styled.div`
   display: flex;
 `
-
 /*
  * Retourne une promesse d'une tache exécutée après un temps donné
  * exemple : delay(1000).then(() => console.log('Hello après 1 seconde !'))

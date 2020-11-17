@@ -426,6 +426,32 @@
             <li>Bonus : Modifier Tab.js tel que const Tab = () => null</li>
           </ol>
         </section>
+        <section>
+          <h3>Children</h3>
+          <p>Function As a Child Component</p>
+          <pre><code data-trim>
+            const Exec = ({children}) => {
+              const result = children()
+              return &lt;div&gt;{result}&lt;/div&gt;
+            }
+          </code></pre>
+          <pre><code data-trim>
+            ReactDOM.render(
+               &lt;Exec&gt;
+                {() => 4 +  2 }
+               &lt;/Exec&gt;,
+               document.getElementById('root')
+            )
+            </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP Children</h3>
+          <h4>faccil !</h4>
+          <ol>
+            <li>Comprendre le code du composant 'Loader' et de la fonction 'delay'</li>
+            <li>Utiliser le pattern FACC pour combiner Loader et delay</li>
+          </ol>
+        </section>
       </div>
 
       <script src="reveal/reveal.js"></script>
