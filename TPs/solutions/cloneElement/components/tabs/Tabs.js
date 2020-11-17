@@ -24,8 +24,8 @@ const Tabs = ({ children }) => {
       {React.Children.map(children, (child, index) => {
         if (index !== selectedTab) return null
         if (child.type !== Tab) return null
-        const setSousTitre = st => setSousTitres(prev => ({...prev, [index]: st}))
-        return React.cloneElement(child, {setSousTitre})
+        const setSousTitre = st => setSousTitres(prev => ({ ...prev, [index]: st }))
+        return React.cloneElement(child.props.children, { setSousTitre })
       })}
     </div>
   )

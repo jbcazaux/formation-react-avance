@@ -12,7 +12,7 @@ const Page = ({ children, setSousTitre }) => {
   const [text, setText] = useState('')
   const onChange = e => {
     const value = e.target.value
-    setSousTitre(value)
+    setSousTitre?.(value)
     setText(value)
   }
   return (

@@ -369,7 +369,7 @@
           </ol>
         </section>
         <section>
-          <h3>Children</h3>
+          <h3>React.Children</h3>
           <pre><code data-trim>
             ReactDOM.render(
                &lt;Button title="My Button"&gt;Press Me! &lt;/Button&gt;,
@@ -386,7 +386,7 @@
             </code></pre>
         </section>
         <section>
-          <h3>Children</h3>
+          <h3>React.Children</h3>
           <pre><code data-trim>
             ReactDOM.render(
                &lt;List&gt;
@@ -409,7 +409,7 @@
             </code></pre>
         </section>
         <section>
-          <h3>Children</h3>
+          <h3>React.Children</h3>
           <p>Méthodes sur React.Children : map, foreach, count, only, toArray.</p>
           <p style="font-size: 0.6em">
             <a href="https://en.reactjs.org/docs/react-api.html#reactchildren"> Documentation React.Children </a>
@@ -421,13 +421,13 @@
           <ol>
             <li>Dans Tabs.js, créer un state pour sauvegarder l'index de l'onglet sélectionné</li>
             <li>Retourner un TabTitle pour chaque onglet (Tab)</li>
-            <li>Dans les TabTitle, mettre le titre défini dans les Tab </li>
+            <li>Dans les TabTitle, mettre le titre défini dans les Tab</li>
             <li>Afficher le Tab sélectionné (et pas les autres)</li>
             <li>Bonus : Modifier Tab.js tel que const Tab = () => null</li>
           </ol>
         </section>
         <section>
-          <h3>Children</h3>
+          <h3>React.Children</h3>
           <p>Function As a Child Component</p>
           <pre><code data-trim>
             const Exec = ({children}) => {
@@ -445,11 +445,36 @@
             </code></pre>
         </section>
         <section data-background="#40a0a0">
-          <h3>TP Children</h3>
+          <h3>TP React.Children</h3>
           <h4>faccil !</h4>
           <ol>
             <li>Comprendre le code du composant 'Loader' et de la fonction 'delay'</li>
             <li>Utiliser le pattern FACC pour combiner Loader et delay</li>
+          </ol>
+        </section>
+        <section>
+          <h3>React.cloneElement</h3>
+          <p>Cloner un élément, en pouvant ajouter des props et des children.</p>
+          <pre><code data-trim>
+            const MyComponent = ({className, children}) => (
+              &lt;div className={className}&gt;{children}&lt;/div&gt;
+            )
+
+            React.cloneElement(
+              &lt;MyComponent&gt;default child&lt;MyComponent&gt;,
+              {className: 'maClasse'},
+              ['mes nouveaux ', 'children !']
+            )
+          </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP React.cloneElement</h3>
+          <h4>Manger du clone</h4>
+          <ol>
+            <li>Dans le composant Tabs, cloner le Tab à afficher en lui injectant la méthode 'setSousTitre'.</li>
+            <li>Dans le composant Tab, cloner 'children' pour injecter la méthode 'setSousTitre' qui a été passée.</li>
+            <li>Bonus 1: vérifier que Tab n'a qu'un seul composant enfant (children)</li>
+            <li>Bonus 2: Modifier Tab.js tel que const Tab = () => null</li>
           </ol>
         </section>
       </div>
