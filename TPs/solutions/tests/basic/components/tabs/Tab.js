@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Tab = ({ children, setDetail }) => React.cloneElement(children, { setDetail })
+const Tab = () => null
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node,
+  setDetail: PropTypes.func,
 }
 
 export default Tab
