@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import style from './Tabs.scss'
 import PropTypes from 'prop-types'
-import Tab from 'components/tabs/Tab'
+import Tab from './Tab'
 import cn from 'classnames'
 
 const Tabs = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState(0)
-  const [sousTitres, setSousTitres] = useState({})
+  const [details, setDetails] = useState({})
 
   return (
-    <div>
-      <div className={style.tabs}>
+    <div role="tabs">
+      <div className={style.tabs} role="tablist">
         {React.Children.map(children, (child, index) => {
           if (child.type !== Tab) return null
           const onclick = setSelectedTab.bind(null, index)
           return (
-            <TabTitle selected={selectedTab === index} onClick={onclick} subTitle={sousTitres[index]}>
+            <TabTitle selected={selectedTab === index} onClick={onclick} detail={details[index]}>
               {child.props.title}
             </TabTitle>
           )
@@ -24,8 +24,8 @@ const Tabs = ({ children }) => {
       {React.Children.map(children, (child, index) => {
         if (index !== selectedTab) return null
         if (child.type !== Tab) return null
-        const setSousTitre = st => setSousTitres(prev => ({...prev, [index]: st}))
-        // TODO : passer setSousTitre au 'child'
+        const setDetail = d => setDetails(prev => ({ ...prev, [index]: d }))
+        // TODO : passer setDetail au 'child'
         return child
       })}
     </div>
@@ -34,20 +34,21 @@ const Tabs = ({ children }) => {
 
 Tabs.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
-  defaultInfos: PropTypes.object,
 }
 
 export default Tabs
 
-const TabTitle = ({ selected, children, subTitle, onClick }) => (
-  <div className={cn(style.tab, { [style.selectedTab]: selected })} onClick={onClick}>
+const TabTitle = ({ selected, children, detail, onClick }) => (
+  <div className={cn(style.tab, { [style.selectedTab]: selected })} onClick={onClick} role="tab">
     {children}
-    <div className={style.soustitre}>{subTitle}&#8203;</div>
+    <div className={style.detail} role="note">
+      {detail}&#8203;
+    </div>
   </div>
 )
 
 TabTitle.propTypes = {
-  subTitle: PropTypes.string,
+  detail: PropTypes.string,
   children: PropTypes.node.isRequired,
   selected: PropTypes.bool,
   onClick: PropTypes.func,
