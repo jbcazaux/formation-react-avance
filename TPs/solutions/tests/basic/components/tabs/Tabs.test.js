@@ -1,11 +1,11 @@
 import React from 'react'
-import { render, fireEvent, getNodeText } from '@testing-library/react'
+import { render, fireEvent, getNodeText, screen } from '@testing-library/react'
 import Tabs from './Tabs'
 import Tab from './Tab'
 
 describe('Tabs', () => {
-  const Body1 = ({ setSousTitre }) => (
-    <div onClick={() => setSousTitre('info !')} data-testid="body1">
+  const Body1 = ({ setDetail }) => (
+    <div onClick={() => setDetail('info !')} data-testid="body1">
       body1
     </div>
   )
@@ -27,7 +27,7 @@ describe('Tabs', () => {
   })
 
   it('displays second tab body when clicking on title2', async () => {
-    const { container, queryByTestId } = render(
+    render(
       <Tabs>
         <Tab title="title1">
           <Body1 />
@@ -37,18 +37,18 @@ describe('Tabs', () => {
         </Tab>
       </Tabs>
     )
-    expect(queryByTestId('body1')).toBeTruthy()
-    expect(queryByTestId('body2')).toBeFalsy()
+    expect(screen.queryByTestId('body1')).toBeTruthy()
+    expect(screen.queryByTestId('body2')).toBeFalsy()
 
-    const secondTab = container.querySelectorAll('.tab')[1]
+    const secondTab = screen.getAllByRole('tab')[1]
     fireEvent.click(secondTab)
 
-    expect(queryByTestId('body1')).toBeFalsy()
-    expect(queryByTestId('body2')).toBeTruthy()
+    expect(screen.queryByTestId('body1')).toBeFalsy()
+    expect(screen.queryByTestId('body2')).toBeTruthy()
   })
 
-  it('displays info after setting it', async () => {
-    const { container, getByTestId } = render(
+  it('displays detail after setting it', () => {
+    render(
       <Tabs>
         <Tab title="title1">
           <Body1 />
@@ -59,9 +59,9 @@ describe('Tabs', () => {
       </Tabs>
     )
 
-    const firstTab = container.querySelector('.selectedTab .soustitre')
-    expect(getNodeText(firstTab)).not.toContain('info !')
-    fireEvent.click(getByTestId('body1'))
-    expect(getNodeText(firstTab)).toContain('info !')
+    const firstTabDetails = screen.getAllByRole('note')[0]
+    expect(getNodeText(firstTabDetails)).not.toContain('info !')
+    fireEvent.click(screen.getByTestId('body1'))
+    expect(getNodeText(firstTabDetails)).toContain('info !')
   })
 })

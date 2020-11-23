@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Tabs from './components/tabs/Tabs'
-import Tab from './components/tabs/Tab'
+import Tabs from 'components/tabs/Tabs'
+import Tab from 'components/tabs/Tab'
 import PropTypes from 'prop-types'
 
 const AppContainer = styled.div`
   display: flex;
 `
 
-const Page = ({ children, setSousTitre }) => {
+const Page = ({ children, setDetail }) => {
   const [text, setText] = useState('')
   const onChange = e => {
     const value = e.target.value
-    setSousTitre(value)
+    setDetail(value)
     setText(value)
   }
   return (
@@ -24,7 +24,7 @@ const Page = ({ children, setSousTitre }) => {
 }
 Page.propTypes = {
   children: PropTypes.node.isRequired,
-  setSousTitre: PropTypes.func,
+  setDetail: PropTypes.func,
 }
 
 const App = () => (

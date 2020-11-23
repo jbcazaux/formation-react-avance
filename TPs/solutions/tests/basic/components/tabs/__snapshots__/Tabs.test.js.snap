@@ -2,26 +2,33 @@
 
 exports[`Tabs displays simple Tabs 1`] = `
 <div>
-  <div>
+  <div
+    role="tabs"
+  >
     <div
       class="tabs"
+      role="tablist"
     >
       <div
         class="tab selectedTab"
+        role="tab"
       >
         title1
         <div
-          class="soustitre"
+          class="detail"
+          role="note"
         >
           ​
         </div>
       </div>
       <div
         class="tab"
+        role="tab"
       >
         title2
         <div
-          class="soustitre"
+          class="detail"
+          role="note"
         >
           ​
         </div>
