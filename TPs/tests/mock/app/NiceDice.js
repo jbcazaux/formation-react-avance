@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import style from './NiceDice.scss'
 import cn from 'classnames'
@@ -18,8 +17,8 @@ NiceDice.propTypes = {
   value: PropTypes.number.isRequired,
 }
 
-const DiceColumn = ({dots, symetrie}) => (
-  <div className={cn(style.diceColumn, {[style.symetrie] : symetrie})}>
+const DiceColumn = ({ dots, symetrie }) => (
+  <div className={cn(style.diceColumn, { [style.symetrie]: symetrie })}>
     {new Array(dots).fill('').map((_, i) => (
       <div key={i} className={style.dot} />
     ))}
@@ -28,6 +27,6 @@ const DiceColumn = ({dots, symetrie}) => (
 
 DiceColumn.propTypes = {
   dots: PropTypes.number.isRequired,
-  symetrie: PropTypes.bool
+  symetrie: PropTypes.bool,
 }
 export default NiceDice

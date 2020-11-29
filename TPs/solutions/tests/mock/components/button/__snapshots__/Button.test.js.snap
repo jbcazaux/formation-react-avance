@@ -2,6 +2,8 @@
 
 exports[`NiceDice renders DiceRoll 1`] = `
 <div>
-  <button />
+  <button
+    data-testid="button"
+  />
 </div>
 `;

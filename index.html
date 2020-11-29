@@ -548,11 +548,71 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP tests/basic</h3>
-          <h4>snapchot</h4>
+          <h4>Snapchot</h4>
           <ol>
             <li>Faire un test snapshot du composant</li>
             <li>Vérifier qu'un clic sur le second onglet affiche Body2 et masque Body1</li>
             <li>Vérifier que la méthode setDetail est appelée</li>
+          </ol>
+        </section>
+        <section>
+          <h3>before / after</h3>
+          <pre><code data-trim>
+          describe('My test suite', () => {
+            beforeEach(() => {
+              // setup
+            })
+            afterEach(() => {
+              // teardown
+            })
+          </code></pre>
+          <p style="font-size: 0.6em">
+            beforeEach, afterEach, beforeAll, afterAll (<a href="https://jestjs.io/docs/en/setup-teardown"
+              >documentation</a
+            >).
+          </p>
+        </section>
+        <section>
+          <h3>Mocker un module : jest.mock()</h3>
+          <pre><code data-trim>
+          const mockedModule = {...}
+          jest.mock('./MyModule', () => mockedModule)
+          // Pour un composant react (c'est un module !)
+          jest.mock('./MyReactComponent', () =>
+            () => &lt;div&gt;my react component&lt;/div&gt;
+          )
+          describe('my test suite', () => {
+            // ...
+          })
+          </code></pre>
+        </section>
+        <section>
+          <h3>Mocker une méthode : jest.spyOn()</h3>
+
+          <pre><code data-trim>
+          // retourne un mock mais avec la véritable implémentation
+          jest.spyOn(object, methodName)
+          </code></pre>
+          <pre><code data-trim>
+          beforeEach(() => {
+            // remplacer l'implémentation
+            jest.spyOn(object, methodName)
+              .mockImplementation(() => customImplementation)
+            jest.spyOn(object, methodName)
+              .mockReturnValue(customValue)
+          })
+          </code></pre>
+          <pre><code data-trim>
+          jest.restoreAllMocks() // au teardown
+          </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h3>TP tests/mock</h3>
+          <h4>mock and roll</h4>
+          <ol>
+            <li>Ecrire le test de dice.js, en mockant Math.random</li>
+            <li>Tester unitairement DiceRoll.js (et pas ses dépendances)</li>
+            <li>Tester NiceDice.js</li>
           </ol>
         </section>
       </div>

@@ -1,5 +1,4 @@
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import Button from 'components/button/Button'
 
 describe('NiceDice', () => {
@@ -12,8 +11,8 @@ describe('NiceDice', () => {
   })
 
   it('calls onclick', () => {
-    const { container } = render(<Button onClick={mock} />)
-    const button = container.querySelector('button')
+    render(<Button onClick={mock} />)
+    const button = screen.getByTestId('button')
 
     fireEvent.click(button)
 

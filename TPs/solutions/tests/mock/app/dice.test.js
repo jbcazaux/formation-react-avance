@@ -1,9 +1,13 @@
-import {roll} from './dice'
+import { roll } from './dice'
 
 describe('dice', () => {
   beforeEach(() => {
-    jest.spyOn(global.Math, 'random').mockReturnValue(0.6);
-  });
+    jest.spyOn(Math, 'random').mockReturnValue(0.6)
+  })
+  afterEach(() => {
+    jest.restoreAllMocks()
+  })
+
   it('gets integer value', () => {
     const result = roll(6)
 
