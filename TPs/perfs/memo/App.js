@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+// TODO : memoizer le composant Button
 const Button = ({ handleClick }) => <button onClick={handleClick}>click me !</button>
 Button.propTypes = {
   handleClick: PropTypes.func.isRequired,

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const Calculator = ({ a, b }) => {
-
+  // TODO : memoizer le résultat de l'opération
   const add = (x, y) => {
     console.log('une loooongue addition')
     return x + y

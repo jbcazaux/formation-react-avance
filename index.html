@@ -179,16 +179,17 @@
           <pre><code data-trim>
             const Counter = () => {
              const count = useRef(0)
-             return
-              &lt;&gt;
-                &lt;button onClick={() => count.current = count.current + 1}&gt;Click me !&lt;/button&gt;
+             return &lt;&gt;
+                &lt;button onClick={() => count.current = count.current + 1}&gt;
+                  Click me !
+                &lt;/button&gt;
                 &lt;Super counter={count.current}/&gt;
               &lt;/&gt;
             }
           </code></pre>
         </section>
         <section data-background="#40a0a0">
-          <h3>TP hooks/useRef-useEffect</h3>
+          <h3>TP hooks/useRef</h3>
           <h4>I can see dead components</h4>
           <ol>
             <li>Etudier l'erreur lors du changement de page et trouver une solution</li>
@@ -233,7 +234,6 @@
           <h4>Passe moi le sel !</h4>
           <ol>
             <li>Utiliser le contexte pour passer une fonction qui modifie le sel</li>
-            <li>Comment améliorer ce composant Trigger ?</li>
           </ol>
         </section>
         <section>
@@ -251,10 +251,10 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP hooks/useMemo</h3>
-          <h4>Souviens toi le résultat dernier</h4>
-          <ol>
-            <li>Vérifier que la méthode passée à useMemo n'est pas appelée plusieurs fois</li>
-          </ol>
+          <h4>Souviens-toi le résultat dernier</h4>
+          <ul>
+            <ol>'Mémoizer' le résultat de l'opération</ol>
+          </ul>
         </section>
         <section data-auto-animate data-visibility="hidden">
           <h3 data-id="memo">Perfs - React.memo</h3>
@@ -273,9 +273,6 @@
             return prevProps.user?.id === nextProps.user?.id
            })
           </code></pre>
-        </section>
-        <section>
-          <h3>Optimisations</h3>
         </section>
         <section>
           <h3>Perfs - useCallback</h3>
@@ -299,26 +296,16 @@
             <li>Utiliser React.memo</li>
           </ol>
         </section>
-        <section>
-          <h3>Perfs - code splitting / lazy loading</h3>
-          <p>Charger une partie des sources à la demande.</p>
-          <pre><code data-trim>
-           const LazyComponent = React.lazy(() =>
-            import(/* webpackChunkName: "nomDuBundle" */ './AnyComponent')
-           )
-           const MyComponent = () => (
-            &lt;Suspense fallback={&lt;div&gt;Loading... !&lt;/div&gt;}>
-              &lt;LazyComponent/&gt;
-            &lt;/Suspense&gt;
-           )
-          </code></pre>
-          <p style="font-size: 0.6em">Options webpack : <i>webpackPrefetch</i>, <i>webpackPreload</i></p>
+        <section data-background="#40a0a0">
+          <h3>TP perfs/all</h3>
+          <h4>Full optimization!</h4>
+          <ol>
+            <li>Utiliser le Profiler React et améliorer ce qui peut l'être.</li>
+          </ol>
         </section>
         <section>
           <h3>Perfs - code splitting / lazy loading</h3>
-          <p>
-            Attendre que les sous-composants soient entièrement chargés, et afficher un autre composant en attendant
-          </p>
+          <p>Charger une partie des sources à la demande</p>
           <pre><code data-trim>
            const LazyComponent = React.lazy(() =>
             import(/* webpackChunkName: "nomDuBundle" */ './AnyComponent')

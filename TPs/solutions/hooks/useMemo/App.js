@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 const Calculator = ({ a, b }) => {
@@ -7,7 +7,7 @@ const Calculator = ({ a, b }) => {
       console.log('une loooongue addition')
       return x + y
     }
-    return add(a, b);
+    return add(a, b)
   }, [a, b])
 
   return <div> {result} </div>
