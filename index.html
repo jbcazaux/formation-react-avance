@@ -69,9 +69,9 @@
             />
           </a>
         </section>
-        <section><img data-src="images/mynameis.jpg" alt="my name is" /></section>
-        <section><img data-src="images/coffee.gif" alt="coffee break" /></section>
-        <section>
+        <section data-visibility="hidden"><img data-src="images/mynameis.jpg" alt="my name is" /></section>
+        <section data-visibility="hidden"><img data-src="images/coffee.gif" alt="coffee break" /></section>
+        <section data-visibility="hidden">
           <h3>Objectifs</h3>
           <img data-src="images/postits.jpg" alt="goals" />
         </section>
@@ -643,7 +643,7 @@
           progress: true,
           center: true,
           hash: true,
-          showHiddenSlides: true,
+          showHiddenSlides: !window.location.search.match(/print-pdf/gi),
 
           plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
         })
