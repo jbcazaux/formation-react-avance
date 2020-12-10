@@ -3,13 +3,17 @@ import Menu from '../Menu'
 
 const Route1 = () => {
   const [title, setTitle] = useState('Loading Route1...')
+  const timeout = useRef(null)
 
   useEffect(() => {
     getTitle()
+    return () => {
+      clearTimeout(timeout.current)
+    }
   }, [])
 
   const getTitle = () => {
-    setTimeout(() => {
+    timeout.current = setTimeout(() => {
       setTitle('Route1')
     }, 2000)
   }

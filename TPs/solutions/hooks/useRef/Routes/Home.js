@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Menu from '../Menu'
 
 const Home = () => {
   const [title, setTitle] = useState('Loading ...')
+  const timeout = useRef(null)
 
   useEffect(() => {
     getTitle()
-  }, [title])
+    return () => {
+      clearTimeout(timeout.current)
+    }
+  }, [])
 
   const getTitle = () => {
-    setTimeout(() => {
+    timeout.current = setTimeout(() => {
       setTitle('HOMEPAGE')
     }, 2000)
   }
