@@ -6,7 +6,7 @@ const Home = () => {
 
   useEffect(() => {
     getTitle()
-  }, [title])
+  }, [])
 
   const getTitle = () => {
     setTimeout(() => {
