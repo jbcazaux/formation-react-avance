@@ -88,20 +88,18 @@ const Clock = () => {
 const App = () => {
   const [cells, setCells] = useState([])
   const [text, setText] = useState('')
-  const [textLength, setTextLength] = useState('')
   const [useTransition, setUseTransition] = useState(false)
   const [useClock, setUseClock] = useState(true)
+  const textLength = useDeferredValue(text.length)
 
   const handleTextChange = value => {
     setText(value)
     if (useTransition) {
       startTransition(() => {
         setCells(new Array(value.length).fill('').map(_ => randomColor()))
-        setTextLength(value.length)
       })
     } else {
       setCells(new Array(value.length).fill('').map(_ => randomColor()))
-      setTextLength(value.length)
     }
   }
   return (
