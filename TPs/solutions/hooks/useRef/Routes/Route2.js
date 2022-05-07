@@ -9,15 +9,16 @@ const Route2 = () => {
     getTitle()
     return () => {
       clearTimeout(timeout.current)
+      console.log('Route2 will unmount')
     }
   }, [])
 
   const getTitle = () => {
     timeout.current = setTimeout(() => {
+      console.log('route2 - set title')
       setTitle('Route2')
     }, 2000)
   }
-
   return (
     <div>
       <Menu />

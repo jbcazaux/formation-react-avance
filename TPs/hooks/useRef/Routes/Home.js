@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Menu from '../Menu'
 
 const Home = () => {
@@ -6,14 +6,17 @@ const Home = () => {
 
   useEffect(() => {
     getTitle()
+    return () => {
+      console.log('Home will unmount')
+    }
   }, [])
 
   const getTitle = () => {
     setTimeout(() => {
+      console.log('homepage - set title')
       setTitle('HOMEPAGE')
     }, 2000)
   }
-
   return (
     <div>
       <Menu />

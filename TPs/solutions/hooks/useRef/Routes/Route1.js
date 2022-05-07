@@ -9,11 +9,13 @@ const Route1 = () => {
     getTitle()
     return () => {
       clearTimeout(timeout.current)
+      console.log('Route1 will unmount')
     }
   }, [])
 
   const getTitle = () => {
     timeout.current = setTimeout(() => {
+      console.log('route1 - set title')
       setTitle('Route1')
     }, 2000)
   }

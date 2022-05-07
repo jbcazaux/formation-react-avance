@@ -6,10 +6,14 @@ const Route1 = () => {
 
   useEffect(() => {
     getTitle()
+    return () => {
+      console.log('Route1 will unmount')
+    }
   }, [])
 
   const getTitle = () => {
     setTimeout(() => {
+      console.log('route1 - set title')
       setTitle('Route1')
     }, 2000)
   }

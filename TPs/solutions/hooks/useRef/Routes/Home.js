@@ -9,15 +9,16 @@ const Home = () => {
     getTitle()
     return () => {
       clearTimeout(timeout.current)
+      console.log('Home did unmount')
     }
   }, [])
 
   const getTitle = () => {
     timeout.current = setTimeout(() => {
+      console.log('homepage - set title')
       setTitle('HOMEPAGE')
     }, 2000)
   }
-
   return (
     <div>
       <Menu />
