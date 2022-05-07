@@ -33,10 +33,12 @@ const Right = styled.div`
 
 const App = () => {
   const [villes, setVilles] = useState([])
-  // TODO : créer un state pour enregistrer un sel
-  // TODO : créer une fonction pour modifier le sel
+  // TODO 1 : créer un state pour enregistrer un sel
+
+  // TODO 2: créer une fonction pour modifier le sel
   const rechargerVille = () => {}
-  // TODO : créer un 'effect' qui met à jour la liste des villes, chaque fois que le sel change
+
+  // TODO 3: créer un 'effect' qui met à jour la liste des villes, chaque fois que le sel change
 
   const supprimeVille = useCallback(selection => setVilles(prev => prev.filter(v => v.id !== selection.id)), [])
 
