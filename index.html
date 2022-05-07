@@ -77,7 +77,7 @@
         </section>
         <section>
           <h3>Versions</h3>
-          <pre><code data-trim>"react": "17.0.1"</code></pre>
+          <pre><code data-trim>"react": "18.1.0"</code></pre>
         </section>
         <section>
           <h3>Le programme !</h3>
@@ -191,9 +191,12 @@
         <section data-background="#40a0a0">
           <h3>TP hooks/useRef</h3>
           <h4>I can see dead components</h4>
-          <ol>
-            <li>Etudier l'erreur lors du changement de page et trouver une solution</li>
-          </ol>
+          <ul>
+            <li>
+              Trouver une solution pour que le timeout ne s'exécute plus si le composant est
+              <span style="font-style: italic">unmount</span>.
+            </li>
+          </ul>
         </section>
         <section>
           <h3>Les hooks - useContext</h3>
@@ -206,11 +209,12 @@
                 export default MyContext
             </code></pre>
           <pre><code data-trim>
-                ...
-                return &lt;MyContext.Provider
-                            value={{color: 'purple', user: new User(1, 'admin')}}&gt;
+                // dans un composant :
+                return (
+                  &lt;MyContext.Provider value={{color: 'purple'}}&gt;
                     &lt;App/&gt;
-                &lt;/MyContext.Provider&gt;
+                  &lt;/MyContext.Provider&gt;
+                )
             </code></pre>
         </section>
         <section>
@@ -231,13 +235,17 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP hooks/useContext</h3>
-          <h4>Passe moi le sel !</h4>
+          <h4>Le context</h4>
           <ol>
+            <li>Encapsuler le composant <span style="font-weight: bold">Page</span> dans App.js dans un context.</li>
             <li>
-              Utiliser le composant Trigger pour mettre à disposition le comportement de <em>rechargerVilles</em> aux composants
-              de l'application
+              Dans le composant <span style="font-weight: bold">RechargerVilles</span>, récupérer <span style="font-style: italic">setVilles</span> pour mettre
+              à jour la liste des villes.
             </li>
-            <li>Mettre à jour le composant <em>Recharger</em> afin de récupérer la méthode passée dans le contexte.</li>
+            <li>
+              Dans le composant <span style="font-weight: bold">Villes</span>, récupérer <span style="font-style: italic">villes</span> depuis le context, pour
+              afficher la liste des villes.
+            </li>
           </ol>
         </section>
         <section>

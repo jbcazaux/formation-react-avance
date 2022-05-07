@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from 'react'
-import villesApi from 'apis/villes'
-import VilleInfos from './VilleInfos'
 import styled from 'styled-components'
 import Page from 'components/Page'
 import Card from 'components/Card'
-import Recharger from 'app/Recharger'
-import Trigger from 'components/Trigger'
+import RechargerVilles from 'app/RechargerVilles'
+import VillesContext from 'components/VillesContext'
+import Villes from 'app/Villes'
 
 const Main = styled.div`
   min-height: 0;
@@ -35,27 +34,23 @@ const Right = styled.div`
 
 const App = () => {
   const [villes, setVilles] = useState([])
-  const rechargerVilles = useCallback(() => villesApi.get().then(setVilles), [])
-  const supprimeVille = useCallback(selection => setVilles(prev => prev.filter(v => v.id !== selection.id)), [])
 
   return (
-    <Trigger f={rechargerVilles}>
+    <VillesContext.Provider value={{ villes, setVilles }}>
       <Page>
         <AppTitle>Liste des villes</AppTitle>
         <Main>
           <CardScroll>
-            {villes.map(ville => (
-              <VilleInfos ville={ville} key={ville.id} onSelect={supprimeVille} />
-            ))}
+            <Villes />
           </CardScroll>
           <Right>
             <Card>
-              <Recharger />
+              <RechargerVilles />
             </Card>
           </Right>
         </Main>
       </Page>
-    </Trigger>
+    </VillesContext.Provider>
   )
 }
 
