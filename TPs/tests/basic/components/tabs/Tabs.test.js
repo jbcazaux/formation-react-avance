@@ -23,7 +23,7 @@ describe('Tabs', () => {
       </Tabs>
     )
 
-    // TODO : écrire un test avec snapshot
+    // TODO 1: écrire un test avec snapshot
   })
 
   it('displays second tab body when clicking on title2', async () => {
@@ -55,8 +55,8 @@ describe('Tabs', () => {
       </Tabs>
     )
 
-    // TODO : 1 - Vérifier que le 'detail' n'est pas affiché sur le premier onglet
+    // TODO : 1 - Vérifier que le 'detail' n'est pas affiché dans la page
     // TODO : 2 - Cliquer sur body1 pour déclencher 'setDetail'
-    // TODO : 3 - Vérifier que le 'detail' est affiché sur le premier onglet
+    // TODO : 3 - Vérifier que le 'detail' est affiché dans la page
   })
 })
