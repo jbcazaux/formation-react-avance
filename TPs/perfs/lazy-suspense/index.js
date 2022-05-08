@@ -1,28 +1,27 @@
 import React, { Suspense, useState } from 'react'
-import ReactDOM from 'react-dom'
-
-import LazyGoodbye from './Goodbye' // TODO : faire un import dynamique de la librairie à l'aide de React.lazy
+import { createRoot } from 'react-dom/client'
+// TODO : faire un import dynamique de LazyGoodbye à l'aide de React.lazy
+import LazyGoodbye from './Goodbye'
 
 const Button = () => {
-  const [display, setDisplay] = useState(false)
-  return (
-    <>
-      <button onClick={() => setDisplay(d => !d)}>click me!</button>
-      {display && (
-        <Suspense fallback={<div>Loading... !</div>}>
-          <LazyGoodbye name="CGG" />
-        </Suspense>
-      )}
-    </>
-  )
+    const [display, setDisplay] = useState(false)
+    return (
+        <>
+            <button onClick={() => setDisplay(d => !d)}>click me!</button>
+            {display && (
+                <Suspense fallback={<div>Loading... !</div>}>
+                    <LazyGoodbye name="CGG" />
+                </Suspense>
+            )}
+        </>
+    )
 }
 
 const Hello = ({ name }) => <div> Hello {name}</div>
 
-ReactDOM.render(
-  <>
-    <Hello name="CGG" />
-    <Button />
-  </>,
-  document.getElementById('root')
+createRoot(document.getElementById('root')).render(
+    <>
+        <Hello name="CGG" />
+        <Button />
+    </>
 )

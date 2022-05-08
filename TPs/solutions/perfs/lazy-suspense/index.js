@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 const LazyGoodbye = React.lazy(() => import(/* webpackChunkName: "LazyGoodbye" */ './Goodbye'))
 
@@ -19,10 +19,9 @@ const Button = () => {
 
 const Hello = ({ name }) => <div> Hello {name}</div>
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <>
     <Hello name="CGG" />
     <Button />
-  </>,
-  document.getElementById('root')
+  </>
 )
