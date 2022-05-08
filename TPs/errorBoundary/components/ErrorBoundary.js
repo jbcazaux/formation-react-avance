@@ -8,7 +8,7 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // TODO : mettre à jour le state pour indiquer qu'il y a une erreur
+    // TODO 2: mettre à jour le state pour indiquer qu'il y a une erreur
   }
 
   componentDidCatch(error, errorInfo) {
@@ -16,8 +16,9 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
-    // TODO : Si il y a une erreur, afficher un message
-    // sinon afficher l'application
+    // TODO 3: Si il y a une erreur, afficher un message
+
+    // TODO 1 : afficher l'application
     return null
   }
 }

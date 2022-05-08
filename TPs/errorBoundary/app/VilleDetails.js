@@ -16,14 +16,9 @@ const Nom = styled(Details)`
   margin-bottom: 10px;
 `
 
-const ComponentWithError = () => {
-  throw new Error('Méchante erreur')
-}
-
-
 const VilleDetails = ({ ville }) => {
   if (ville.nom.startsWith('A')) {
-    return <ComponentWithError />
+      throw new Error('Méchante erreur')
   }
 
   return (
