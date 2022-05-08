@@ -9,7 +9,7 @@ const Calculator = ({ a, b }) => {
     }
     return add(a, b)
   }, [a, b])
-
+  console.log('render Calculator')
   return <div> {result} </div>
 }
 Calculator.propTypes = {
