@@ -239,12 +239,12 @@
           <ol>
             <li>Encapsuler le composant <span style="font-weight: bold">Page</span> dans App.js dans un context.</li>
             <li>
-              Dans le composant <span style="font-weight: bold">RechargerVilles</span>, récupérer <span style="font-style: italic">setVilles</span> pour mettre
-              à jour la liste des villes.
+              Dans le composant <span style="font-weight: bold">RechargerVilles</span>, récupérer
+              <span style="font-style: italic">setVilles</span> pour mettre à jour la liste des villes.
             </li>
             <li>
-              Dans le composant <span style="font-weight: bold">Villes</span>, récupérer <span style="font-style: italic">villes</span> depuis le context, pour
-              afficher la liste des villes.
+              Dans le composant <span style="font-weight: bold">Villes</span>, récupérer
+              <span style="font-style: italic">villes</span> depuis le context, pour afficher la liste des villes.
             </li>
           </ol>
         </section>
@@ -265,9 +265,7 @@
           <h3>TP hooks/useMemo</h3>
           <h4>Souviens-toi le résultat dernier</h4>
           <ul>
-            <li>
-              'Mémoizer' le résultat de l'opération
-            </li>
+            <li>'Mémoizer' le résultat de l'opération</li>
           </ul>
         </section>
         <section data-auto-animate data-visibility="hidden">
@@ -510,9 +508,21 @@
           <h3>TP React.cloneElement</h3>
           <h4>Manger un clone</h4>
           <ol>
-            <li>Dans le composant Tabs, cloner le Tab à afficher en lui injectant la méthode 'setSousTitre'.</li>
-            <li>Dans le composant Tab, cloner 'children' pour injecter la méthode 'setSousTitre' qui a été passée.</li>
-            <li>Bonus 1: vérifier que Tab n'a qu'un seul composant enfant (children)</li>
+            <li>
+              Dans le composant <span style="font-weight: bold">Tabs</span>, cloner le
+              <span style="font-weight: bold">Tab</span> à afficher en lui injectant la props
+              <span style="font-style: italic">setSousTitre</span>, qui est passée dans les props de
+              <span style="font-weight: bold">Tab</span> sous le nom <span style="font-style: italic">setDetail</span>.
+            </li>
+            <li>
+              Dans le composant <span style="font-weight: bold">Tab</span>, cloner
+              <span style="font-style: italic">children</span> pour injecter la méthode
+              <span style="font-style: italic">setSousTitre</span> qui a été passée.
+            </li>
+            <li>
+              Bonus 1: vérifier que <span style="font-weight: bold">Tab</span> n'a qu'un seul composant enfant
+              (children)
+            </li>
             <li>Bonus 2: Modifier Tab.js tel que const Tab = () => null</li>
           </ol>
         </section>

@@ -25,7 +25,7 @@ const Tabs = ({ children }) => {
         if (index !== selectedTab) return null
         if (child.type !== Tab) return null
         const setDetail = d => setDetails(prev => ({ ...prev, [index]: d }))
-        // TODO : passer setDetail au 'child'
+        // TODO 1: passer setDetail au 'child' (child est un Tab, cf App.js)
         return child
       })}
     </div>
