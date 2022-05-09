@@ -662,6 +662,81 @@
           </ol>
         </section>
         <section>
+          <h3>React Query</h3>
+
+          <p>
+            React Query permet de faire des requêtes et de stocker le résultat afin q'il soit disponible dans toute
+            l'application.
+          </p>
+          <pre><code data-trim>
+            const { data } = useQuery('items', itemsApi.get)
+            </code></pre>
+        </section>
+        <section>
+          <h3>React Query</h3>
+
+          <p>La clé fonctionne également comme un tableau de dépendances.</p>
+          <pre><code data-trim>
+            const { data } =
+                useQuery(['user', userId], () => usersApi.get(userId))
+            </code></pre>
+        </section>
+        <section>
+          <h3>React Query</h3>
+
+          <p>useQuery retourne bien plus que les données récupérées.</p>
+          <pre><code data-trim>
+            const { data = {}, refetch, isLoading, isError } =
+                useQuery(['user', userId], () => usersApi.get(userId))
+            </code></pre>
+          <p>
+            Voir la <a href="https://react-query.tanstack.com/reference/useQuery" target="_blank">documentation</a>.
+          </p>
+        </section>
+        <section>
+          <h3>React Query</h3>
+
+          <p>Pour faire des mises à jour, on utilise les mutations.</p>
+          <pre><code data-trim>
+            const { mutateAsync: createUser } = useMutation(userApi.create, {
+                onSuccess: () => console.log('c est OK !'),
+            })
+            </code></pre>
+          <pre><code data-trim>
+                &lt;button onClick={() => createUser(myNewUser)}&gt;CREATE USER&lt;/button&gt;
+            </code></pre>
+          <p>
+            Voir la <a href="https://react-query.tanstack.com/reference/useMutation" target="_blank">documentation</a>.
+          </p>
+        </section>
+        <section>
+          <h3>React Query</h3>
+
+          <p>Il faut initialiser React Query à la racine de l'application</p>
+          <pre><code data-trim>
+            import { createRoot } from 'react-dom/client'
+            import { QueryClient, QueryClientProvider } from 'react-query'
+
+            const container = document.getElementById('root')
+            const root = createRoot(container)
+            const queryClient = new QueryClient()
+
+            root.render(&lt;QueryClientProvider client={queryClient}&gt;
+                &lt;MyApp/&gt;
+              &lt;/QueryClientProvider&gt;)
+          </code></pre>
+        </section>
+        <section data-background="#40a0a0">
+          <h4>TP / reactQuery</h4>
+          <ol>
+            <li>Utiliser useQuery pour récupérer la liste des villes (se servir de l'api existante)</li>
+            <li>Utiliser useMutation pour supprimer un item à la liste</li>
+            <li>Une fois la suppression faite, utiliser refetch (renvoyé par useQuery) pour recharger la liste</li>
+            <li>Utiliser isLoading de useQuery pour ajouter un loader lors du chargement de la liste</li>
+            <li>Utiliser isLoading de useMutation pour ajouter un loader lors de la suppression</li>
+          </ol>
+        </section>
+        <section>
           <h3>Le futur de react</h3>
           <p>
             Concurent Mode :
