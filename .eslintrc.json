@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -18,7 +18,7 @@
     "browser": true,
     "jest": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "standard-jsx"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
     "arrow-body-style": ["error", "as-needed"],
     "eqeqeq": "error",
