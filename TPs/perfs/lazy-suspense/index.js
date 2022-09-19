@@ -10,7 +10,7 @@ const Button = () => {
             <button onClick={() => setDisplay(d => !d)}>click me!</button>
             {display && (
                 <Suspense fallback={<div>Loading... !</div>}>
-                    <LazyGoodbye name="CGG" />
+                    <LazyGoodbye name="oxiane" />
                 </Suspense>
             )}
         </>
@@ -21,7 +21,7 @@ const Hello = ({ name }) => <div> Hello {name}</div>
 
 createRoot(document.getElementById('root')).render(
     <>
-        <Hello name="CGG" />
+        <Hello name="oxiane" />
         <Button />
     </>
 )

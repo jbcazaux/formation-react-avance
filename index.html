@@ -144,9 +144,8 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP hooks/useEffect</h3>
-          <h4>Pour ne pas dessaler</h4>
           <ol>
-            <li>Utiliser un sel comme dépendance du useEffect</li>
+            <li>Utiliser un nombre comme dépendance du useEffect</li>
           </ol>
         </section>
         <section>
@@ -263,7 +262,6 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP hooks/useMemo</h3>
-          <h4>Souviens-toi le résultat dernier</h4>
           <ul>
             <li>'Mémoizer' le résultat de l'opération</li>
           </ul>
@@ -328,7 +326,6 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP perfs/memo</h3>
-          <h4>Souviens toi le composant dernier</h4>
           <ol>
             <li>Utiliser React dev tools pour montrer que le composant <em>Button</em> est réaffiché plusieurs fois</li>
             <li>Utiliser React.memo</li>
@@ -454,7 +451,6 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP Children/map</h3>
-          <h4>Sweet child o' mine</h4>
           <ol>
             <li>Dans Tabs.js, créer un state pour sauvegarder l'index de l'onglet sélectionné</li>
             <li>Retourner un TabTitle pour chaque onglet (Tab)</li>
@@ -483,7 +479,6 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP React.Children/facc</h3>
-          <h4>faccil !</h4>
           <ol>
             <li>Comprendre le code du composant 'Loader' et de la fonction 'delay'</li>
             <li>Utiliser le pattern FACC pour combiner Loader et delay</li>
@@ -506,18 +501,17 @@
         </section>
         <section data-background="#40a0a0">
           <h3>TP React.cloneElement</h3>
-          <h4>Manger un clone</h4>
           <ol>
             <li>
               Dans le composant <span style="font-weight: bold">Tabs</span>, cloner le
               <span style="font-weight: bold">Tab</span> à afficher en lui injectant la props
-              <span style="font-style: italic">setSousTitre</span>, qui est passée dans les props de
-              <span style="font-weight: bold">Tab</span> sous le nom <span style="font-style: italic">setDetail</span>.
+              <span style="font-style: italic">setDetail</span>.
             </li>
             <li>
               Dans le composant <span style="font-weight: bold">Tab</span>, cloner
               <span style="font-style: italic">children</span> pour injecter la méthode
-              <span style="font-style: italic">setSousTitre</span> qui a été passée.
+              <span style="font-style: italic">setSousTitre</span> qui a été passée (dans la props nommée
+              <span style="font-style: italic">setDetail</span>).
             </li>
             <li>
               Bonus 1: vérifier que <span style="font-weight: bold">Tab</span> n'a qu'un seul composant enfant
