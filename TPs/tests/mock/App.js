@@ -8,24 +8,6 @@ const AppContainer = styled.div`
   flex-direction: column;
 `
 
-const Page = ({ children, setSousTitre }) => {
-  const [text, setText] = useState('')
-  const onChange = e => {
-    const value = e.target.value
-    setSousTitre(value)
-    setText(value)
-  }
-  return (
-    <div>
-      {children}
-      <input value={text} onChange={onChange} />
-    </div>
-  )
-}
-Page.propTypes = {
-  children: PropTypes.node.isRequired,
-  setSousTitre: PropTypes.func,
-}
 
 const App = () => (
   <AppContainer>
