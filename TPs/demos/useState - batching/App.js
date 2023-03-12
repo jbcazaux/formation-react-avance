@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 
 const App = ({ appId }) => {
   const [data, setData] = useState(null)
@@ -9,9 +10,9 @@ const App = ({ appId }) => {
     setIsLoading(true)
     axios
       .get('laposte_hexasmal_small.json')
-      .then(response => response.data)
-      .then(data => {
-        setData(data)
+      .then(({ data: fetchedData }) => {
+        setData(fetchedData)
+        setIsLoading(false)
       })
       .then(() => setIsLoading(false))
   }, [])
@@ -23,6 +24,8 @@ const App = ({ appId }) => {
   return <div>starting...</div>
 }
 
-App.propTypes = {}
+App.propTypes = {
+  appId: PropTypes.string.isRequired,
+}
 
 export default App
