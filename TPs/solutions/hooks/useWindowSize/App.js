@@ -1,7 +1,7 @@
 import useWindowSize from './useWindowSize'
 
 const App = () => {
-  const [height, width] = useWindowSize()
+  const [width, height] = useWindowSize()
 
   return (
     <div>
